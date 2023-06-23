@@ -1,0 +1,5 @@
+module Rfaker
+  class Randomiser
+    def rd: (classes: Array[String], weights: Array[Float | Integer ] | String ) -> void
+  end
+end

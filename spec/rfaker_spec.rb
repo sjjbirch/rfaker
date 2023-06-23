@@ -5,7 +5,11 @@ RSpec.describe Rfaker do
     expect(Rfaker::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  describe ".rd" do
+    context "given no arguments" do
+      it "returns strings" do
+        expect(Rfaker.rd.to(be_an_instance_of(String)))
+      end
+    end
   end
 end
