@@ -2,6 +2,9 @@
 
 source "https://rubygems.org"
 
-# gem "rails"
+# Specify your gem's dependencies in rfaker.gemspec
+gemspec
 
-gem "faker", "~> 3.2"
+gem "rake", "~> 13.0"
+gem "rspec", "~> 3.0"
+gem "rubocop", "~> 1.21"
