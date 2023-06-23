@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["allowed_push_host"] = "https://example.com"
 
-  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["homepage_uri"] = "https://github.com/sjjbirch/rfaker"
   spec.metadata["source_code_uri"] = "https://github.com/sjjbirch/rfaker"
   spec.metadata["changelog_uri"] = "https://github.com/sjjbirch/rfaker"
 
