@@ -7,7 +7,12 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    concurrent-ruby (1.2.2)
     diff-lcs (1.5.0)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
+    i18n (1.14.1)
+      concurrent-ruby (~> 1.0)
     json (2.6.3)
     parallel (1.23.0)
     parser (3.2.2.3)
@@ -50,6 +55,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bundler (~> 2.4)
+  faker (~> 3.2)
   rake (~> 13.0)
   rfaker!
   rspec (~> 3.0)
