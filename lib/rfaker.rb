@@ -85,7 +85,7 @@ module Rfaker
       arbitrary_substitutions.each_pair do |k, p|
         if attempted_call =~ /#{Regexp.quote(k)}/
           attempted_call[k] = p
-          next
+          break
         end
       end
       attempted_call

@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="74be6a89-dd86-4c77-b837-daf24932544f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/rfaker.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rfaker.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sig/rfaker/faker_tree.rbs" beforeDir="false" afterPath="$PROJECT_DIR$/sig/rfaker/faker_tree.rbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +163,7 @@
       <workItem from="1687523602583" duration="305000" />
       <workItem from="1687524373546" duration="6339000" />
       <workItem from="1687773264651" duration="54000" />
-      <workItem from="1687773326002" duration="11692000" />
+      <workItem from="1687773326002" duration="12795000" />
     </task>
     <servers />
   </component>
