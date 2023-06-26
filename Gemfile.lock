@@ -55,6 +55,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bundler (~> 2.4)
   faker (~> 3.2)
   rake (~> 13.0)
   rfaker!
