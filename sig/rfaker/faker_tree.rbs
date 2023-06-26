@@ -4,7 +4,7 @@ module Rfaker
 
     def arbitrary_substitutions: -> Hash[String, String]
 
-    def arity_pruner: -> Array[String]
+    def arity_pruned_meth_adder: -> Array[Method]
 
     def build_full_call: -> String
 
@@ -16,9 +16,9 @@ module Rfaker
 
     def directory_hash_iterator: -> [String | Hash[untyped, untyped]]
 
-    def enumerate_fclass_methods: -> [String, Array[String]]
+    def enumerate_fclass_methods: -> [String, Array[Method]]
 
-    def method_adder: -> Array[String]
+    def method_adder: -> Array[Method]
 
   end
 end

@@ -56,21 +56,25 @@ module Rfaker
 
     def method_adder(in_str)
       begin
-        methods = arity_pruner(eval(in_str))
+        methods = arity_pruned_meth_adder(in_str)
       rescue NameError
-        methods = arity_pruner(eval(call_fixer(in_str)))
+        methods = arity_pruned_meth_adder(call_fixer(in_str))
       end
       methods
     end
 
-    def arity_pruner(faker_class)
-      # returns array of methods in class
-      candidates = faker_class.methods(false)
+    def arity_pruned_meth_adder(in_str)
+      # returns array of methods in class that don't require args
+      candidates = eval(in_str).methods(false)
+      methods = []
       candidates.each do |candidate|
-        #  Discard any methods that require arguments by checking arity
-        candidates.delete(candidate) unless candidate.arity.between?(-1, 0)
+        # Another fantastic guard clause.
+        next if candidate.to_s == "saint_saens"
+
+        meth = eval("#{in_str}.method(candidate)")
+        meth.arity.between?(-1, 0) ? methods << meth : next
       end
-      candidates
+      methods
     end
 
     def camelise(string)
@@ -173,6 +177,3 @@ module Rfaker
     end
   end
 end
-
-hmm = Rfaker::FakerTree.new(Rfaker::Helpers.lazy_path)
-puts hmm.tree
