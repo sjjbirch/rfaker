@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "rfaker/version"
-require 'faker'
+require "faker"
 
 # The module containing methods for selecting generators.
 module Rfaker
@@ -20,8 +20,13 @@ module Rfaker
     # Return a hash containing the directory of classes and methods underneath it
 
     def directory_hash(path, name = nil)
-      data = { data: (name || path) }
+      data = { "data" => (name || path) }
       data[:children] = children = []
+      directory_hash_iterator(path, children, name)
+      data
+    end
+
+    def directory_hash_iterator(path, children, name)
       Dir.foreach(path) do |entry|
         next if %w[.. .].include?(entry)
 
@@ -29,12 +34,10 @@ module Rfaker
         children << if File.directory?(full_path)
                       directory_hash(full_path, entry)
                     else
-
                       call, methods = enumerate_fclass_methods(entry, name)
                       Hash[call, methods]
                     end
       end
-      data
     end
 
     # Input class and its parent
@@ -42,44 +45,59 @@ module Rfaker
     def enumerate_fclass_methods(file_name, parent_name)
       return if parent_name.nil?
 
-      no_rb = capitalize_and_underscore_strip(file_name.delete_suffix(".rb"))
-      parent_name = capitalize_and_underscore_strip(parent_name)
+      no_rb = camelise(file_name.delete_suffix(".rb"))
+      parent_name = camelise(parent_name)
       rtn_str = build_full_call(no_rb, parent_name)
 
-      begin
-        methods = eval(rtn_str).methods(false)
-      rescue NameError
-        methods = eval(stupid_substitutions(rtn_str)).methods(false)
-      end
+      methods = method_adder(rtn_str)
 
       [rtn_str, methods]
-
     end
 
-    def capitalize_and_underscore_strip(string)
+    def method_adder(in_str)
+      begin
+        methods = arity_pruner(eval(in_str))
+      rescue NameError
+        methods = arity_pruner(eval(call_fixer(in_str)))
+      end
+      methods
+    end
+
+    def arity_pruner(faker_class)
+      # returns array of methods in class
+      candidates = faker_class.methods(false)
+      candidates.each do |candidate|
+        #  Discard any methods that require arguments by checking arity
+        candidates.delete(candidate) unless candidate.arity.between?(-1, 0)
+      end
+      candidates
+    end
+
+    def camelise(string)
       string.split("_").map(&:capitalize).join("")
     end
 
-    def stupid_substitutions(attempted_call)
-      case attempted_call
-      when /FullmetalAlchemist/
-        attempted_call["FullmetalAlchemist"] = "Fma"
-      when /Dnd/
-        attempted_call["Dnd"] = "DnD"
-      when /Music::Show/
-        attempted_call["Music::Show"] = "Show"
-      when /Nhs/
-        attempted_call["Nhs"] = "NationalHealthService" # A bong caused this hack.
-      when /IdNum/
-        attempted_call["IdNum"] = "IDNum"
-      when /InternetHttp/
-        attempted_call["InternetHttp"] = "Internet::HTTP"
-      when /TheItCrowd/
-        attempted_call["TheItCrowd"] = "TheITCrowd"
-      when /::Room/
-        attempted_call["::Room"] = "::TheRoom"
+    def call_fixer(attempted_call)
+      arbitrary_substitutions.each_pair do |k, p|
+        if attempted_call =~ /#{Regexp.quote(k)}/
+          attempted_call[k] = p
+          next
+        end
       end
       attempted_call
+    end
+
+    def arbitrary_substitutions
+      {
+        "FullmetalAlchemist" => "Fma",
+        "Dnd" => "DnD",
+        "Music::Show" => "Show",
+        "Nhs" => "NationalHealthService",
+        "IdNum" => "IDNum",
+        "InternetHttp" => "Internet::HTTP",
+        "TheItCrowd" => "TheITCrowd",
+        "::Room" => "::TheRoom"
+      }
     end
 
     def build_full_call(child_name, parent_name)
@@ -89,43 +107,49 @@ module Rfaker
         "Faker::#{parent_name}::#{child_name}"
       end
     end
-
   end
 
   # Class for creating and holding collection of weighted faker generators.
   class Randomiser
-    attr_accessor :input_classes, :input_weights, :classes, :weights
+    attr_accessor :input_classes, :input_weights
 
     def initialize(params = {})
-      @input_classes = classes
-      @input_weights = weights
+      @input_classes = params.fetch("classes")
+      @input_weights = params.fetch("weights")
       @tree = FakerTree.new(Rfaker::Helpers.lazy_path).tree
-
-      compute_collection
-
     end
 
-  end
-
-  def parse_weight_strings(classes, weights)
+    # TODO: Writing these cases made me realise there are two domains for the randomness,
+    #       and the input args should probably reflect that:
+    #           First domain: The domains for the randomness.
+    #           Second domain: The weights of the randomness.
     # Take classes and weights. (take class methods and weights)
     # Return weights as array of numbers with values determined by strings and length equal to classes.
     # If invalid string, use default weight.
-    rtn_array = []
-    case weights
-      # TODO: Writing these cases made me realise there are two domains for the randomness, and the input args should probs reflect:
-      #   First domain: The domains for the randomness.
-      #   Second domain: The weights of the randomness.
-    when "default"
-      # Even at provided arg level, ie class_weight = 1/number_of_called_classes
-      classes.length.times do rtn_array << 1
+    def parse_weight_strings(classes, weights)
+      rtn_array = []
+      case weights
+      when "default"
+        # Even at provided arg level, ie class_weight = 1/number_of_called_classes
+        rtn_array = apply_default_weights(classes, rtn_array)
+      when "return_method_weighted_default"
+        # Even at return method weight level, ie class_weight = own_method_pool/total_method_pool
+        # TODO: This.
+      when "return_entropy_weighted_default"
+        # Even at return entry weight level, ie class_weight = own_string_pool/call_string_pool
+        # TODO: This.
+      else
+        # TODO: This.
+        "Mission over, we'll get 'em next time."
       end
-    when "return_method_weighted_default"
-      # Even at return method weight level, ie class_weight = own_method_pool/total_method_pool
-      # TODO: This.
-    when "return_entropy_weighted_default"
-      # Even at return entry weight level, ie class_weight = own_string_pool/call_string_pool
-      # TODO: This.
+      rtn_array
+    end
+
+    def apply_default_weights(classes, rtn_array)
+      classes.length.times do
+        rtn_array << 1
+      end
+      rtn_array
     end
   end
 
@@ -149,3 +173,6 @@ module Rfaker
     end
   end
 end
+
+hmm = Rfaker::FakerTree.new(Rfaker::Helpers.lazy_path)
+puts hmm.tree

@@ -1,0 +1,11 @@
+module Rfaker
+  module Helpers
+    def self.faker_class_path: -> String
+
+    def self.faker_path: -> String
+
+    def self.faker_yaml_path: -> String
+
+    def self.lazy_path: -> String
+  end
+end

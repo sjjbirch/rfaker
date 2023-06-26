@@ -4,17 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74be6a89-dd86-4c77-b837-daf24932544f" name="Changes" comment="" />
+    <list default="true" id="74be6a89-dd86-4c77-b837-daf24932544f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/sig/rfaker/faker_tree.rbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sig/rfaker/helpers.rbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rfaker.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rfaker.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sig/rfaker/randomiser.rbs" beforeDir="false" afterPath="$PROJECT_DIR$/sig/rfaker/randomiser.rbs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="RBS Class" />
+        <option value="RBS Module" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2RbfFuWflMvYImeVNSpJ3PMqdmP" />
   <component name="ProjectViewState">
@@ -150,6 +167,7 @@
       <workItem from="1687523602583" duration="305000" />
       <workItem from="1687524373546" duration="6339000" />
       <workItem from="1687773264651" duration="54000" />
+      <workItem from="1687773326002" duration="4816000" />
     </task>
     <servers />
   </component>
@@ -157,7 +175,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/rfaker@rfaker.rcov" NAME="rfaker Coverage Results" MODIFIED="1687527594192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rfaker" />
+    <SUITE FILE_PATH="coverage/rfaker@rfaker.rcov" NAME="rfaker Coverage Results" MODIFIED="1687775886282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rfaker" />
     <SUITE FILE_PATH="coverage/rfaker@Rfaker_rd.rcov" NAME="Rfaker.rd Coverage Results" MODIFIED="1687525646602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rfaker" />
   </component>
 </project>

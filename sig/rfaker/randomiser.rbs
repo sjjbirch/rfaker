@@ -1,5 +1,19 @@
 module Rfaker
   class Randomiser
+    @input_classes: Array[String]
+
+    @input_weights: Array[Float | Integer | String]
+
+    @tree: Hash[String, Array[untyped]]
+
+    attr_accessor input_classes: Array[String]
+
+    attr_accessor input_weights: Array[Float | Integer | String]
+
+    def apply_default_weights: -> Array[Integer]
+
+    def parse_weight_strings: -> Array[Numeric]
+
     def rd: (classes: Array[String], weights: Array[Float | Integer ] | String ) -> void
   end
 end
