@@ -8,7 +8,7 @@ module Rfaker
   class Error < StandardError; end
 
   # A class that stores a hash containing the directory of faker classes and methods underneath it
-  class Faker_tree
+  class FakerTree
     attr_accessor :tree
 
     # TODO: Create subtrees instead of full trees (already does, just handle args in and out better).
@@ -99,7 +99,7 @@ module Rfaker
     def initialize(params = {})
       @input_classes = classes
       @input_weights = weights
-      @tree = Faker_tree.new(Rfaker::Helpers.lazy_path).tree
+      @tree = FakerTree.new(Rfaker::Helpers.lazy_path).tree
 
       compute_collection
 
@@ -128,11 +128,11 @@ module Rfaker
       # TODO: This.
     end
   end
-  
+
   #   Helper methods:
   module Helpers
     def self.faker_path
-      # Returns path of faker for direct YAML selection methods.
+      # Returns path of faker
       `bundle show faker`.delete("\n")
     end
 
@@ -145,7 +145,7 @@ module Rfaker
     end
 
     def self.lazy_path
-      faker_class_path(faker_path)
+      Rfaker::Helpers.faker_class_path(Rfaker::Helpers.faker_path)
     end
   end
 end
