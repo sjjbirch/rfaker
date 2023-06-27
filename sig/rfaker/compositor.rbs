@@ -1,5 +1,5 @@
 module Rfaker
-  class Randomiser
+  class Compositor
     @input_classes: Array[String]
 
     @input_weights: Array[Float | Integer | String]
@@ -14,6 +14,6 @@ module Rfaker
 
     def parse_weight_strings: -> Array[Numeric]
 
-    def rd: (classes: Array[String], weights: Array[Float | Integer ] | String ) -> void
+    # def rd: (classes: Array[String], weights: Array[Float | Integer ] | String ) -> void
   end
 end

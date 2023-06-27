@@ -18,8 +18,8 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-### Randomisers
-Spawn a randomiser with `even_faker_faker = Rfaker::Randomiser.new([domain1, domain2], [weight1, weight2] | "weight description")`
+### Compositors
+Spawn a compositor with `short_form = Rfaker.composite(domain1, domain2)` or `long_form = Rfaker::Compositor.new([domain1, domain2], [weight1, weight2] | "weight description")`
 
 Use it to generate a random return with `even_faker_faker.fake`
 

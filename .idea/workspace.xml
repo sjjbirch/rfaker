@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74be6a89-dd86-4c77-b837-daf24932544f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/rfaker/compositor.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/rfaker/directory.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/rfaker/ftree.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rfaker.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rfaker.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sig/rfaker/randomiser.rbs" beforeDir="false" afterPath="$PROJECT_DIR$/sig/rfaker/compositor.rbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +58,13 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Ruby.rfaker">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/rfaker" />
+      <recent name="$PROJECT_DIR$/lib/rfaker/helpers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Ruby.tests">
     <configuration name="Rfaker.rd" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true" nameIsGenerated="true">
       <module name="rfaker" />
       <predefined_log_file enabled="true" id="RUBY_RSPEC" />
@@ -117,6 +130,24 @@
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method v="2" />
     </configuration>
+    <configuration name="tests" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <module name="rfaker" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/lib/tests.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
       <predefined_log_file enabled="true" id="RUBY_TESTUNIT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
@@ -145,6 +176,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Ruby.tests" />
         <item itemvalue="Ruby.rfaker" />
         <item itemvalue="Ruby.fker" />
         <item itemvalue="RSpec.Rfaker.rd" />
@@ -163,7 +195,7 @@
       <workItem from="1687523602583" duration="305000" />
       <workItem from="1687524373546" duration="6339000" />
       <workItem from="1687773264651" duration="54000" />
-      <workItem from="1687773326002" duration="12795000" />
+      <workItem from="1687773326002" duration="18828000" />
     </task>
     <servers />
   </component>
@@ -171,7 +203,8 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/rfaker@rfaker.rcov" NAME="rfaker Coverage Results" MODIFIED="1687785009207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rfaker" />
+    <SUITE FILE_PATH="coverage/rfaker@rfaker.rcov" NAME="rfaker Coverage Results" MODIFIED="1687826679328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rfaker" />
     <SUITE FILE_PATH="coverage/rfaker@Rfaker_rd.rcov" NAME="Rfaker.rd Coverage Results" MODIFIED="1687525646602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rfaker" />
+    <SUITE FILE_PATH="coverage/rfaker@tests.rcov" NAME="tests Coverage Results" MODIFIED="1687859063210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="rfaker" />
   </component>
 </project>
